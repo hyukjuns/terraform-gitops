@@ -5,15 +5,15 @@ terraform {
       version = " ~> 2.80"
     }
   }
-   backend "remote" {
-         # The name of your Terraform Cloud organization.
-         organization = "cloocus-mspdevops"
+  backend "remote" {
+    # The name of your Terraform Cloud organization.
+    organization = "cloocus-mspdevops"
 
-         # The name of the Terraform Cloud workspace to store Terraform state files in.
-         workspaces {
-           name = "hyukjun-github-action-vm-workspace"
-         }
-       }
+    # The name of the Terraform Cloud workspace to store Terraform state files in.
+    workspaces {
+      name = "hyukjun-github-action-vm-workspace"
+    }
+  }
 }
 
 provider "azurerm" {
@@ -84,7 +84,7 @@ resource "azurerm_subnet_network_security_group_association" "nsg_association" {
 
 # linux Server
 resource "azurerm_public_ip" "linux_server_pip" {
-  count = var.cnt
+  count               = var.cnt
   name                = "${var.prefix}-linux-server-pip-${count.index}"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
@@ -94,7 +94,7 @@ resource "azurerm_public_ip" "linux_server_pip" {
 }
 
 resource "azurerm_network_interface" "linux_server_nic" {
-  count = var.cnt
+  count               = var.cnt
   name                = "${var.prefix}-linux-server-nic-${count.index}"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
@@ -108,7 +108,7 @@ resource "azurerm_network_interface" "linux_server_nic" {
 }
 
 resource "azurerm_linux_virtual_machine" "linux_server" {
-  count = var.cnt
+  count               = var.cnt
   name                = "${var.prefix}-linux-server-${count.index}"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
