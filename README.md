@@ -1,12 +1,12 @@
 # Terraform Cloud & Github Actions
 
-# Terraform Cloud & Github Actions
+## Terraform Cloud & Github Actions
 
 Github Actions와 Terraform Cloud를 통해 gitOps를 구현합니다.
 
 ## 요약
 
-Github을 통한 테라폼 소스 관리와 동시에 Github Actions를 통해 Terraform Plan & Apply를 수행합니다. <br>
+Github을 통한 테라폼 소스 관리와 동시에 Github Actions를 통해 Terraform Plan & Apply를 수행합니다. <br> 
 (실제 Terraform Engine이 실행되는 공간은 Terraform Cloud 입니다.)
 
 ## 구성 단계
